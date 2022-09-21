@@ -1,0 +1,1302 @@
+<!doctype html>
+<html xmlns:xi="http://www.w3.org/2001/XInclude">
+   <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+      <title>DO380: Red Hat OpenShift Administration III : Scaling Kubernetes Deployments in the Enterprise</title>
+      <link rel="stylesheet" href="css/reveal.css"/>
+      <link rel="stylesheet" href="css/theme/redhat.css" id="theme"/>
+      <!--Theme used for syntax highlighting of code-->
+      <link rel="stylesheet" href="lib/css/zenburn.css"/>
+      <!--Printing and PDF exports-->
+      <script>
+                    var link = document.createElement( 'link' );
+                    link.rel = 'stylesheet';
+                    link.type = 'text/css';
+                    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+                    document.getElementsByTagName( 'head' )[0].appendChild( link );
+                </script>
+   </head>
+   <body>
+      <div class="reveal">
+         <div class="slides">
+            <section data-state="white"
+                     data-background-image="css/images/RH_Title_Background.png">
+               <img src="css/images/redhat-logo-white.svg" class="title-logo"/>
+               <h2 class="course-title">Red Hat OpenShift Administration III : Scaling Kubernetes Deployments in the Enterprise</h2>
+               <p class="title-color">DO380</p>
+            </section>
+            <section data-state="black">
+               <img class="rhlc" src="css/images/rhlc_flyer.png"/>
+            </section>
+            <section data-state="black">
+               <h2>Welcome</h2>
+            </section>
+            <section data-state="black">
+               <h2>Course Objectives and Structure</h2>
+            </section>
+            <section data-state="black">
+               <h2>Schedule</h2>
+            </section>
+            <section data-state="white"
+                     data-background-image="css/images/RH_Chapter_Title_Background2.png">
+               <h1 class="course-title">Chapter 1: Moving From Kubernetes to OpenShift</h1>
+               <p class="goal_title">Goal: Demonstrate that OpenShift is Kubernetes by deploying Kubernetes-native applications on OpenShift.</p>
+               <br/>
+               <p class="objective_list_title">Objectives:</p>
+               <ul class="objective_list">
+                  <li>
+                     <p>Deploy applications on OpenShift using standard Kubernetes resources.</p>
+                  </li>
+                  <li>
+                     <p>Enhance Kubernetes applications using OpenShift extensions from Kubernetes.</p>
+                  </li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Deploying Kubernetes Applications on OpenShift</h2>
+               </section>
+               <section>
+                  <h3>Describing How OpenShift is Enterprise Kubernetes</h3>
+               </section>
+               <section>
+                  <h3>Authenticating to OpenShift</h3>
+               </section>
+               <section>
+                  <h3>Deploying Native Kubernetes Applications on OpenShift</h3>
+               </section>
+               <section>
+                  <h3>Customizing Resources with Kubernetes Kustomize</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Deploying Kubernetes Applications on OpenShift</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Optimizing Kubernetes Applications for OpenShift</h2>
+               </section>
+               <section>
+                  <h3>Describing Kubernetes Resources on OpenShift</h3>
+               </section>
+               <section>
+                  <h3>Managing Image Streams</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Optimizing Kubernetes Applications for OpenShift</h2>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary</h2>
+               <ul class="summary_list">
+                  <li>OpenShift supports native Kubernetes applications.</li>
+                  <li>How to use Kubernetes Kustomize.</li>
+                  <li>How to optimize Kubernetes resources with OpenShift features.</li>
+               </ul>
+            </section>
+            <section data-state="white"
+                     data-background-image="css/images/RH_Chapter_Title_Background2.png">
+               <h1 class="course-title">Chapter 2: Introducing Automation with OpenShift</h1>
+               <p class="goal_title">Goal: Automate OpenShift using scripts and Ansible Playbooks.</p>
+               <br/>
+               <p class="objective_list_title">Objectives:</p>
+               <ul class="objective_list">
+                  <li>
+                     <p>Extract resource information from OpenShift using JSONPath.</p>
+                  </li>
+                  <li>
+                     <p>Execute cluster operation scripts from inside and outside of OpenShift.</p>
+                  </li>
+                  <li>
+                     <p>Navigate the OpenShift REST API.</p>
+                  </li>
+                  <li>
+                     <p>Automate creation and modification of OpenShift resources using the Ansible k8s modules.</p>
+                  </li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Querying OpenShift Resources</h2>
+               </section>
+               <section>
+                  <h3>Describing Kubernetes Resources</h3>
+               </section>
+               <section>
+                  <h3>Extracting Information from Resources</h3>
+               </section>
+               <section>
+                  <h3>Introducing Alternative Methods for Extracting Resource Information</h3>
+               </section>
+               <section>
+                  <h3>Describing Automation Challenges with Resource Updates</h3>
+               </section>
+               <section>
+                  <h3>Waiting on Triggered Deployment Updates</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Querying OpenShift Resources</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Deploying Scripts on OpenShift</h2>
+               </section>
+               <section>
+                  <h3>Automating Operations</h3>
+               </section>
+               <section>
+                  <h3>Discussing Service Accounts</h3>
+               </section>
+               <section>
+                  <h3>Creating Jobs and CronJobs</h3>
+               </section>
+               <section>
+                  <h3>Comparing Script Deployment Strategies</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Deploying Scripts on OpenShift</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Navigating the OpenShift REST API</h2>
+               </section>
+               <section>
+                  <h3>Discussing the OpenShift REST API</h3>
+               </section>
+               <section>
+                  <h3>Authenticating with the REST API</h3>
+               </section>
+               <section>
+                  <h3>Finding REST API Paths</h3>
+               </section>
+               <section>
+                  <h3>Filtering Output</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Navigating the OpenShift REST API</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Writing Ansible Playbooks to Manage OpenShift Resources</h2>
+               </section>
+               <section>
+                  <h3>Explaining the Kubernetes Ansible Modules</h3>
+               </section>
+               <section>
+                  <h3>Describing the K8s Modules Dependencies</h3>
+               </section>
+               <section>
+                  <h3>Explaining the Module Authentication Options</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Writing Ansible Playbooks to Manage OpenShift Resources</h2>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary</h2>
+               <ul class="summary_list">
+                  <li>How to use JSONPath to extract information from OpenShift resources.</li>
+                  <li>About service accounts and how to use them in Roles and RoleBindings.</li>
+                  <li>How to execute pods as  Jobs and CronJobs.</li>
+                  <li>About the OpenShift REST API and how to navigate it.</li>
+                  <li>About the Ansible k8s modules and how to use them to automate OpenShift resources.</li>
+               </ul>
+            </section>
+            <section data-state="white"
+                     data-background-image="css/images/RH_Chapter_Title_Background2.png">
+               <h1 class="course-title">Chapter 3: Managing OpenShift Operators</h1>
+               <p class="goal_title">Goal: Manage operators and OpenShift cluster operators.</p>
+               <br/>
+               <p class="objective_list_title">Objectives:</p>
+               <ul class="objective_list">
+                  <li>
+                     <p>Describe Kubernetes controllers and the operator pattern.</p>
+                  </li>
+                  <li>
+                     <p>Install and troubleshoot operators from the OperatorHub.</p>
+                  </li>
+                  <li>
+                     <p>Identify namespaces and resources of a cluster operator.</p>
+                  </li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Describing Operators</h2>
+               </section>
+               <section>
+                  <h3>Describing Operators</h3>
+               </section>
+               <section>
+                  <h3>Describing Operators in Kubernetes</h3>
+               </section>
+               <section>
+                  <h3>Describing Operators in OpenShift</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="multchoice_title"> Quiz:</span>  Describing Operators Quiz</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Installing Operators</h2>
+               </section>
+               <section>
+                  <h3>Installing Operators from the OperatorHub</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Installing Operators</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Managing Cluster Operators</h2>
+               </section>
+               <section>
+                  <h3>Describing Cluster Operators</h3>
+               </section>
+               <section>
+                  <h3>Describing the Cluster Version Operator</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Managing Cluster Operators</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Managing Operators</h2>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary</h2>
+               <ul class="summary_list">
+                  <li>About operators and controllers.</li>
+                  <li>How to install operators from the OpenShift OperatorHub.</li>
+                  <li>How to examine cluster operators.</li>
+               </ul>
+            </section>
+            <section data-state="white"
+                     data-background-image="css/images/RH_Chapter_Title_Background2.png">
+               <h1 class="course-title">Chapter 4: Implementing GitOps with Jenkins</h1>
+               <p class="goal_title">Goal: Implement a GitOps workflow using containerized Jenkins to administer an OpenShift cluster.</p>
+               <br/>
+               <p class="objective_list_title">Objectives:</p>
+               <ul class="objective_list">
+                  <li>
+                     <p>Describe Jenkins concepts and Jenkins Pipeline concepts.</p>
+                  </li>
+                  <li>
+                     <p>Deploy Jenkins on OpenShift using standard templates and image streams.</p>
+                  </li>
+                  <li>
+                     <p>Configure cluster operators using resource files in a declarative fashion.</p>
+                  </li>
+                  <li>
+                     <p>Automate the configuration of cluster operators from resources in Git using Jenkins Pipelines.</p>
+                  </li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Introducing Jenkins Declarative Pipelines</h2>
+               </section>
+               <section>
+                  <h3>Introducing Continuous Integration (CI) and Continuous Deployment (CD)</h3>
+               </section>
+               <section>
+                  <img src="images/gitops/intro/assets/images/gitops/sample-workflow-cicd.svg"/>
+                  <p>Sample CI/CD Workflow</p>
+               </section>
+               <section>
+                  <img src="images/gitops/intro/assets/images/gitops/sample-workflow-gitops.svg"/>
+                  <p>Sample GitOps Workflow</p>
+               </section>
+               <section>
+                  <h3>Introducing Jenkins</h3>
+               </section>
+               <section>
+                  <img src="images/gitops/intro/assets/images/gitops/intro-nodes.svg"/>
+                  <p>Jenkins Architecture</p>
+               </section>
+               <section>
+                  <h3>Introducing Jenkins Declarative Pipelines</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="multchoice_title"> Quiz:</span>  Introducing Jenkins Declarative Pipelines Quiz</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Deploying Jenkins on OpenShift</h2>
+               </section>
+               <section>
+                  <h3>Introducing Red Hat Jenkins Images and Templates for OpenShift</h3>
+               </section>
+               <section>
+                  <h3>Deploying Jenkins on OpenShift Using Standard Templates</h3>
+               </section>
+               <section>
+                  <h3>Creating a Pipeline Project Using the Jenkins Web UI</h3>
+               </section>
+               <section>
+                  <img src="images/gitops/deploy/assets/images/gitops/deploy-sidebar.png"/>
+                  <p>Jenkins web UI bread crumb and side bar menu</p>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Deploying Jenkins on OpenShift</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Configuring OpenShift Resources Using a Declarative GitOps Workflow</h2>
+               </section>
+               <section>
+                  <h3>Reviewing GitOps Concepts</h3>
+               </section>
+               <section>
+                  <h3>Comparing Imperative and Declarative Resource Management with OpenShift</h3>
+               </section>
+               <section>
+                  <h3>Preprocessing Resource Files with Kustomize</h3>
+               </section>
+               <section>
+                  <h3>Deleting Resources with a Declarative Approach</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Configuring OpenShift Resources Using a Declarative GitOps Workflow</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Configuring OpenShift using GitOps and Jenkins</h2>
+               </section>
+               <section>
+                  <h3>Designing Jenkins Pipelines for GitOps</h3>
+               </section>
+               <section>
+                  <img src="images/gitops/gitops/assets/images/gitops/sample-workflow-gitops.svg"/>
+                  <p>Sample GitOps Workflow</p>
+               </section>
+               <section>
+                  <h3>Configuring a Pipeline from a Jenkinsfile</h3>
+               </section>
+               <section>
+                  <h3>Designing Stages of a Pipeline</h3>
+               </section>
+               <section>
+                  <h3>Designing and Implementing the Apply Pipelines</h3>
+               </section>
+               <section>
+                  <h3>Designing and Implementing the Drift Pipeline</h3>
+               </section>
+               <section>
+                  <h3>Improving the Design of Your GitOps Pipelines</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Configuring OpenShift using GitOps and Jenkins</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Implementing GitOps with Jenkins</h2>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary</h2>
+               <ul class="summary_list">
+                  <li>Jenkins is a popular software development automation server.</li>
+                  <li>Red Hat provides a set of Jenkins container images, which includes plug-ins for interacting with OpenShift and Kubernetes.</li>
+                  <li>OpenShift comes with a few standard templates that makes it easy to deploy Jenkins using images from Red Hat.</li>
+                  <li>CI/CD workflows are usually developer-centric, follow an imperative style, and make heavy use of the DSL of the OpenShift Client plug-in.</li>
+                  <li>GitOps workflows are usually system administrator-centric, follow an declarative style, and make use of YAML files and Kustomize.</li>
+                  <li>A GitOps workflow does two things:<ul class="summary_list">
+                        <li>Apply configuration changes from files under version control.</li>
+                        <li>Detect when configuration drifts from the state under version control, then reconcile or notify.</li>
+                     </ul>
+                  </li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary (continued)</h2>
+               <ul class="summary_list">
+                  <li>Declarative GitOps workflows for Kubernetes are based on the <code>oc apply</code> and <code>oc diff</code> commands.</li>
+                  <li>CI/CD and GitOps workflows are implemented with Jenkins as pipelines</li>
+                  <li>Jenkins pipelines are composed of stages and each stage performs a number of steps.</li>
+                  <li>A step can perform any task required by its workflow, for example, building a container image, setting RBAC permissions, and applying cluster operator configurations.</li>
+               </ul>
+            </section>
+            <section data-state="white"
+                     data-background-image="css/images/RH_Chapter_Title_Background2.png">
+               <h1 class="course-title">Chapter 5: Configuring Enterprise Authentication</h1>
+               <p class="goal_title">Goal: Configure OpenShift integration with enterprise identity providers.</p>
+               <br/>
+               <p class="objective_list_title">Objectives:</p>
+               <ul class="objective_list">
+                  <li>
+                     <p>Configure OpenShift to authenticate using an IdM user and credentials.</p>
+                  </li>
+                  <li>
+                     <p>Automate group synchronization with an LDAP directory.</p>
+                  </li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Configuring the LDAP Identity Provider</h2>
+               </section>
+               <section>
+                  <h3>Enterprise Authentication</h3>
+               </section>
+               <section>
+                  <h3>Configuring the LDAP Identity Provider</h3>
+               </section>
+               <section>
+                  <h3>LDAP Users and Role-based Access Control</h3>
+               </section>
+               <section>
+                  <h3>Troubleshooting</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Configuring the LDAP Identity Provider</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Synchronizing OpenShift Groups with LDAP</h2>
+               </section>
+               <section>
+                  <h3>Synchronizing LDAP Groups</h3>
+               </section>
+               <section>
+                  <h3>Granting Permissions to IdM User Groups</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Synchronizing OpenShift Groups with LDAP</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Configuring OpenShift Enterprise Authentication</h2>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary</h2>
+               <ul class="summary_list">
+                  <li>Enterprise Identity Management Configuration for OpenShift.</li>
+                  <li>OpenShift Roles, Identities, groups and their relations to Enterprise Identity Management.</li>
+                  <li>Automatization for Identity Management.</li>
+               </ul>
+            </section>
+            <section data-state="white"
+                     data-background-image="css/images/RH_Chapter_Title_Background2.png">
+               <h1 class="course-title">Chapter 6: Configuring Trusted TLS Certificates</h1>
+               <p class="goal_title">Goal: Configure trusted TLS certificates for external access to cluster services and applications.</p>
+               <br/>
+               <p class="objective_list_title">Objectives:</p>
+               <ul class="objective_list">
+                  <li>
+                     <p>Change the wildcard certificate used by the ingress controller operator.</p>
+                  </li>
+                  <li>
+                     <p>Configure an application to use the trusted certificate bundle.</p>
+                  </li>
+                  <li>
+                     <p>Describe common issues with OpenShift certificates.</p>
+                  </li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Integrating OpenShift with an Enterprise Certificate Authority</h2>
+               </section>
+               <section>
+                  <h3>Describing the Default Wildcard Certificate</h3>
+               </section>
+               <section>
+                  <img src="images/certificates/enterprise-ca/assets/images/certificates/warning-insecure.png"/>
+                  <p>Certificate Warning</p>
+               </section>
+               <section>
+                  <img src="images/certificates/enterprise-ca/assets/images/certificates/default-ingress-cert.png"/>
+                  <p>Default Ingress Certificate</p>
+               </section>
+               <section>
+                  <h3>Changing the Ingress Controller Operator Certificate</h3>
+               </section>
+               <section>
+                  <h3>Replacing the Master API Certificate</h3>
+               </section>
+               <section>
+                  <h3>Verifying the New Certificate</h3>
+               </section>
+               <section>
+                  <img src="images/certificates/enterprise-ca/assets/images/certificates/secure-web-console.png"/>
+                  <p>Secured Firefox Connection</p>
+               </section>
+               <section>
+                  <h3>Creating an Edge Route Using the New Wildcard Certificate</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Integrating OpenShift with an Enterprise Certificate Authority</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Configuring Applications to Trust the Enterprise Certificate Authority</h2>
+               </section>
+               <section>
+                  <h3>Including Additional Trusted Certificate Authorities</h3>
+               </section>
+               <section>
+                  <h3>Injecting the Trusted CA Bundle</h3>
+               </section>
+               <section>
+                  <h3>Mounting a Trusted CA Bundle</h3>
+               </section>
+               <section>
+                  <h3>Verifying the Mounted Bundle</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Configuring Applications to Trust the Enterprise Certificate Authority</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Troubleshooting OpenShift Certificates</h2>
+               </section>
+               <section>
+                  <h3>Describing Common Issues with OpenShift Certificates</h3>
+               </section>
+               <section>
+                  <h3>Troubleshooting Certificates in OpenShift</h3>
+               </section>
+               <section>
+                  <h3>Troubleshooting Certificates Renewal</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Troubleshooting OpenShift Certificates</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Configuring Trusted TLS Certificates</h2>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary</h2>
+               <ul class="summary_list">
+                  <li>The OpenShift installer creates an internal certificate authority (CA) and uses this CA to sign additional certificates.</li>
+                  <li>Because the default OpenShift certificates are not signed by a recognized certificate authority, users that access the cluster must add one or more exceptions to accept OpenShift certificates.</li>
+                  <li>The ingress operator configures the ingress controller to route traffic into the OpenShift environment.
+You can update the certificate that the ingress controller uses with a certificate signed by a recognized certificate authority, or by your own enterprise CA.</li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary (continued)</h2>
+               <ul class="summary_list">
+                  <li>Changing the ingress controller operator to use a different certificate and its associated key only requires a handful of steps.
+These steps include acquiring the new certificate and key in PEM format, and the certificate must define a wildcard domain in the <code>subjectAltName</code> field.
+This allows OpenShift to use that certificate as a wildcard certificate for the <code>.apps</code> subdomain.</li>
+                  <li>OpenShift makes it possible to update certificates in place without disrupting the applications because operators monitor resources, such as configuration or secrets, and automatically redeploy the services responsible for serving the certificates.</li>
+               </ul>
+            </section>
+            <section data-state="white"
+                     data-background-image="css/images/RH_Chapter_Title_Background2.png">
+               <h1 class="course-title">Chapter 7: Configuring Dedicated Node Pools</h1>
+               <p class="goal_title">Goal: Add nodes to an OpenShift cluster with custom configurations.</p>
+               <br/>
+               <p class="objective_list_title">Objectives:</p>
+               <ul class="objective_list">
+                  <li>
+                     <p>Add nodes to an OpenShift cluster on user-provisioned infrastructure.</p>
+                  </li>
+                  <li>
+                     <p>Create custom machine configuration pools and edit existing machine configurations.</p>
+                  </li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Adding Compute Nodes</h2>
+               </section>
+               <section>
+                  <h3>Discussing Node Scaling</h3>
+               </section>
+               <section>
+                  <h3>Discussing Ignition</h3>
+               </section>
+               <section>
+                  <h3>Installing with PXE boot</h3>
+               </section>
+               <section>
+                  <h3>Discussing Ingress Load Balancing</h3>
+               </section>
+               <section>
+                  <h3>Approving Certificate Signing Requests</h3>
+               </section>
+               <section>
+                  <h3>Adding RHEL Compute Nodes</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Adding Compute Nodes</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Creating Custom Machine Config Pools</h2>
+               </section>
+               <section>
+                  <h3>Discussing the Machine Config Operator</h3>
+               </section>
+               <section>
+                  <h3>Creating Machine Configs</h3>
+               </section>
+               <section>
+                  <h3>Creating Machine Config Pools</h3>
+               </section>
+               <section>
+                  <h3>Configuring Pod Scheduling</h3>
+               </section>
+               <section>
+                  <h3>Observing Machine Config Pool Updates</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Creating Custom Machine Config Pools</h2>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary</h2>
+               <ul class="summary_list">
+                  <li>How to use Ignition as a provisioning tool for Red Hat Enterprise Linux CoreOS.</li>
+                  <li>How to add nodes to an existing user-provisioned OpenShift cluster by updating the worker Ignition file and PXE booting new nodes.</li>
+                  <li>How to use Machine Config Operator, MachineConfigs, and MachineConfigPools, and how they are related.</li>
+                  <li>How to create custom MachineConfigs and MachineConfig pools and how they get applied to nodes in the cluster.</li>
+               </ul>
+            </section>
+            <section data-state="white"
+                     data-background-image="css/images/RH_Chapter_Title_Background2.png">
+               <h1 class="course-title">Chapter 8: Configuring Persistent Storage</h1>
+               <p class="goal_title">Goal: Configure storage providers and storage classes to ensure cluster user access to persistent volume resources.</p>
+               <br/>
+               <p class="objective_list_title">Objectives:</p>
+               <ul class="objective_list">
+                  <li>
+                     <p>Describe the components of the OpenShift storage architecture.</p>
+                  </li>
+                  <li>
+                     <p>Configure an application with shared file storage.</p>
+                  </li>
+                  <li>
+                     <p>Configure a database application with block storage.</p>
+                  </li>
+                  <li>
+                     <p>Use a custom resource to create persistent local volumes.</p>
+                  </li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Describing the OpenShift Storage Architecture</h2>
+               </section>
+               <section>
+                  <h3>Persistent Storage Overview</h3>
+               </section>
+               <section>
+                  <h3>Describing Persistent Volumes</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="multchoice_title"> Quiz:</span>  Describing the OpenShift Storage Architecture</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Provisioning Shared Storage for Applications</h2>
+               </section>
+               <section>
+                  <h3>Describing Shared Storage</h3>
+               </section>
+               <section>
+                  <h3>Accessing Persistent Shared Storage</h3>
+               </section>
+               <section>
+                  <h3>Managing Shared Storage Resources</h3>
+               </section>
+               <section>
+                  <h3>Setting a Default Storage Class</h3>
+               </section>
+               <section>
+                  <h3>Restricting Access to Storage Resources</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Provisioning Shared Storage for Applications</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Provisioning Block Storage for Databases</h2>
+               </section>
+               <section>
+                  <h3>Overview of Block Storage</h3>
+               </section>
+               <section>
+                  <h3>Accessing Block Storage</h3>
+               </section>
+               <section>
+                  <h3>Sharing Block Storage</h3>
+               </section>
+               <section>
+                  <h3>Restricting Allocation of Block Storage Resources</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Provisioning Block Storage for Databases</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Provisioning Local Block Storage</h2>
+               </section>
+               <section>
+                  <h3>Describing Local Volumes</h3>
+               </section>
+               <section>
+                  <h3>Managing Local Volumes</h3>
+               </section>
+               <section>
+                  <h3>Describing the Local Storage Operator</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Installing the Local Storage Operator</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Configuring Persistent Storage</h2>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary</h2>
+               <ul class="summary_list">
+                  <li>OpenShift provides many volume plug-ins that enable using a wide variety of storage technologies in an OpenShift cluster.</li>
+                  <li>OpenShift uses dynamic provisioning to provide on-demand storage resources for some storage technologies.</li>
+                  <li>Operators or playbooks can help manage statically-provisioned storage resources.</li>
+                  <li>Users specify a storage class in a persistent volume claim to request storage with particular characteristics.
+When a storage class is not specified, OpenShift uses the default storage class.</li>
+               </ul>
+            </section>
+            <section data-state="white"
+                     data-background-image="css/images/RH_Chapter_Title_Background2.png">
+               <h1 class="course-title">Chapter 9: Managing Cluster Monitoring and Metrics</h1>
+               <p class="goal_title">Goal: Configure and manage the OpenShift monitoring stack.</p>
+               <br/>
+               <p class="objective_list_title">Objectives:</p>
+               <ul class="objective_list">
+                  <li>
+                     <p>List cluster monitoring features.</p>
+                  </li>
+                  <li>
+                     <p>Send alerts to external locations.</p>
+                  </li>
+                  <li>
+                     <p>Use Prometheus and Grafana to assist in diagnosing cluster problems.</p>
+                  </li>
+                  <li>
+                     <p>Configure Prometheus and Alertmanager to use persistent storage.</p>
+                  </li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Introducing the Cluster Monitoring Stack</h2>
+               </section>
+               <section>
+                  <h3>Listing the Cluster Monitoring Stack Components</h3>
+               </section>
+               <section>
+                  <h3>Defining the Cluster Monitoring Stack Custom Resource Definitions</h3>
+               </section>
+               <section>
+                  <h3>Describing Alertmanager Features</h3>
+               </section>
+               <section>
+                  <img src="images/monitor/cmo/assets/images/monitor/monitor-default-alerts.png"/>
+                  <p>Alert List</p>
+               </section>
+               <section>
+                  <h3>Understanding Alert Rules</h3>
+               </section>
+               <section>
+                  <img src="images/monitor/cmo/assets/images/monitor/monitor-alert-details-short-alt.png"/>
+                  <p>Alert Details</p>
+               </section>
+               <section>
+                  <h3>Silencing an Alert</h3>
+               </section>
+               <section>
+                  <img src="images/monitor/cmo/assets/images/monitor/silence-alert-menu.png"/>
+                  <p>Silence Alert</p>
+               </section>
+               <section>
+                  <img src="images/monitor/cmo/assets/images/monitor/monitor-alerts-with-silence.png"/>
+                  <p>Alert List with Silence</p>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="multchoice_title"> Quiz:</span>  Introducing the Cluster Monitoring Stack</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Managing OpenShift Alerts</h2>
+               </section>
+               <section>
+                  <h3>Describing Alertmanager Default Receivers</h3>
+               </section>
+               <section>
+                  <h3>Sending Alerts to PagerDuty</h3>
+               </section>
+               <section>
+                  <h3>Sending Alerts to Email</h3>
+               </section>
+               <section>
+                  <h3>Applying a New Alertmanager Configuration</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Managing OpenShift Alerts</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Troubleshooting Using the Cluster Monitoring Stack</h2>
+               </section>
+               <section>
+                  <h3>Introducing Prometheus</h3>
+               </section>
+               <section>
+                  <img src="images/monitor/troubleshoot/assets/images/monitor/metrics-instance-node-cpu-utilisation.png"/>
+                  <p>Prometheus Metrics</p>
+               </section>
+               <section>
+                  <h3>Describing Prometheus Query Language</h3>
+               </section>
+               <section>
+                  <img src="images/monitor/troubleshoot/assets/images/monitor/KubeCPUOvercommit.png"/>
+                  <p>KubeCPUOvercommit Alert Rule</p>
+               </section>
+               <section>
+                  <h3>Introducing Grafana</h3>
+               </section>
+               <section>
+                  <img src="images/monitor/troubleshoot/assets/images/monitor/use-worker03-memory-saturation.png"/>
+                  <p>USE Method/Cluster - Memory Saturation</p>
+               </section>
+               <section>
+                  <img src="images/monitor/troubleshoot/assets/images/monitor/use-worker03-disk-io-saturation.png"/>
+                  <p>USE Method/Cluster - Disk IO Saturation</p>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Troubleshooting Using the Cluster Monitoring Stack</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Configuring Storage for the Cluster Monitoring Stack</h2>
+               </section>
+               <section>
+                  <h3>Configuring the Cluster Monitoring Operator</h3>
+               </section>
+               <section>
+                  <h3>Configuring Prometheus Persistent Storage</h3>
+               </section>
+               <section>
+                  <h3>Configuring Alert Manager Persistent Storage</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Configuring Storage for the Cluster Monitoring Stack</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Managing Cluster Monitoring and Metrics</h2>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary</h2>
+               <ul class="summary_list">
+                  <li>OpenShift 4 installs the cluster monitoring stack by default.</li>
+                  <li>Prometheus rules generate alerts for potential cluster problems.</li>
+                  <li>Alertmanager can send alerts to external locations and  display alerts in the OpenShift web console.</li>
+                  <li>Grafana graphically displays metrics collected by Prometheus and you can use it to identify trends and problems for the cluster, nodes, and namespaces.</li>
+                  <li>How to configure Prometheus and Alertmanager to use persistent storage to prevent data loss.</li>
+               </ul>
+            </section>
+            <section data-state="white"
+                     data-background-image="css/images/RH_Chapter_Title_Background2.png">
+               <h1 class="course-title">Chapter 10: Provisioning and Inspecting Cluster Logging</h1>
+               <p class="goal_title">Goal: Deploy and query cluster-wide logging, and diagnose common issues using tools.</p>
+               <br/>
+               <p class="objective_list_title">Objectives:</p>
+               <ul class="objective_list">
+                  <li>
+                     <p>Deploy and configure cluster logging.</p>
+                  </li>
+                  <li>
+                     <p>Inspect Openshift and application logs using Lucene queries in the Kibana UI.</p>
+                  </li>
+                  <li>
+                     <p>Create charts to visualize logs with Kibana.</p>
+                  </li>
+                  <li>
+                     <p>Diagnose cluster logging problems with debugging and monitoring tools.</p>
+                  </li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Deploying Cluster Logging</h2>
+               </section>
+               <section>
+                  <h3>Discussing Cluster Logging</h3>
+               </section>
+               <section>
+                  <h3>Installing the Elasticsearch Operator</h3>
+               </section>
+               <section>
+                  <h3>Installing the Cluster Logging Operator</h3>
+               </section>
+               <section>
+                  <h3>Deploying a Cluster Logging Instance</h3>
+               </section>
+               <section>
+                  <h3>Installing the Event Router</h3>
+               </section>
+               <section>
+                  <h3>Creating Kibana Index Patterns</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Deploying Cluster Logging</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Querying Cluster Logs with Kibana</h2>
+               </section>
+               <section>
+                  <h3>Introducing the Kibana UI</h3>
+               </section>
+               <section>
+                  <img src="images/logging/querying/assets/images/logging/launch-application-orig.png"/>
+                  <p>Accessing Kibana from the OpenShift web console</p>
+               </section>
+               <section>
+                  <img src="images/logging/querying/assets/images/logging/discover.png"/>
+               </section>
+               <section>
+                  <h3>Selecting Indexes</h3>
+               </section>
+               <section>
+                  <h3>Selecting Table Fields</h3>
+               </section>
+               <section>
+                  <h3>Querying Logs</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Querying Cluster Logs with Kibana</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Visualizing Cluster Logs with Kibana</h2>
+               </section>
+               <section>
+                  <h3>Creating Visualizations</h3>
+               </section>
+               <section>
+                  <img src="images/logging/visualizing/assets/images/logging/chart_types.png"/>
+                  <p>Visualization types and a brief description</p>
+               </section>
+               <section>
+                  <img src="images/logging/visualizing/assets/images/logging/pie_chart.png"/>
+                  <p>The Kibana Visualize pane displaying a pie chart</p>
+               </section>
+               <section>
+                  <img src="images/logging/visualizing/assets/images/logging/pie_chart_percent.png"/>
+                  <p>A pie chart showing information about the Slice</p>
+               </section>
+               <section>
+                  <img src="images/logging/visualizing/assets/images/logging/pie_chart_save.png"/>
+                  <p>Save Visualization window</p>
+               </section>
+               <section>
+                  <img src="images/logging/visualizing/assets/images/logging/saved_charts.png"/>
+                  <p>List of saved visualization charts</p>
+               </section>
+               <section>
+                  <h3>Visualizing Time Series with Timelion</h3>
+               </section>
+               <section>
+                  <img src="images/logging/visualizing/assets/images/logging/timelion_basic.png"/>
+                  <p>Timelion Time Series data chart</p>
+               </section>
+               <section>
+                  <img src="images/logging/visualizing/assets/images/logging/timelion_dots.png"/>
+                  <p>Timelion Time Series data chart displayed as dots</p>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Visualizing Cluster Logs with Kibana</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Diagnosing Cluster Logging Problems</h2>
+               </section>
+               <section>
+                  <h3>Discussing Cluster Logging Alerts</h3>
+               </section>
+               <section>
+                  <h3>Observing Cluster Logging Metrics</h3>
+               </section>
+               <section>
+                  <h3>Querying Kibana for Cluster Logging Health</h3>
+               </section>
+               <section>
+                  <h3>Discussing Elasticsearch Troubleshooting Tools</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Diagnosing Cluster Logging Problems</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Provisioning and Inspecting Cluster Logging</h2>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary</h2>
+               <ul class="summary_list">
+                  <li>About the cluster logging components for OpenShift and how they interact with each other.</li>
+                  <li>How to install and configure the cluster logging components.</li>
+                  <li>How to use the Kibana UI to query Elasticsearch for logs.</li>
+                  <li>How to use the Kibana UI to create charts and visualizations of the data that resides in Elasticsearch.</li>
+                  <li>Diagnostic steps to find problematic deployments using the tools provided by cluster logging.</li>
+               </ul>
+            </section>
+            <section data-state="white"
+                     data-background-image="css/images/RH_Chapter_Title_Background2.png">
+               <h1 class="course-title">Chapter 11: Recovering Failed Worker Nodes</h1>
+               <p class="goal_title">Goal: Inspect, troubleshoot, and remediate worker nodes in a variety of failure scenarios.</p>
+               <br/>
+               <p class="objective_list_title">Objectives:</p>
+               <ul class="objective_list">
+                  <li>
+                     <p>Profile worker nodes to examine healthy nodes, ensure the node services function properly, and identify adverse performance or degradation.</p>
+                  </li>
+                  <li>
+                     <p>Diagnose and troubleshoot capacity issues that occur on worker nodes.</p>
+                  </li>
+               </ul>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Profiling Degraded Worker Nodes</h2>
+               </section>
+               <section>
+                  <h3>Examining Healthy Worker Node Statuses</h3>
+               </section>
+               <section>
+                  <h3>Ensuring Worker Node Service Functionality</h3>
+               </section>
+               <section>
+                  <h3>Identifying Adverse Worker Node Performance</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Profiling Degraded Worker Nodes</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Troubleshooting Worker Node Capacity Issues</h2>
+               </section>
+               <section>
+                  <h3>Causes for Worker Node Storage Exhaustion</h3>
+               </section>
+               <section>
+                  <h3>Other Worker Node Capacity Concerns</h3>
+               </section>
+               <section>
+                  <h3>Best Practices for Managing Worker Node Resources</h3>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2>
+                  <span class="checklist_title"> Guided Exercise:</span>  Troubleshooting Worker Node Capacity Issues</h2>
+            </section>
+            <section data-state="black">
+               <section>
+                  <h2>Recovering Failed Worker Nodes</h2>
+               </section>
+            </section>
+            <section data-state="black">
+               <h2 class="summary-title">Summary</h2>
+               <ul class="summary_list">
+                  <li>Worker nodes can experience a degradation of performance and functionality that can be identified and mitigated through the use of monitoring, CLI commands, and status information provided by OpenShift.</li>
+                  <li>Proper administration of an OpenShift cluster requires awareness and mitigation of various capacity issues that arise during operation.</li>
+               </ul>
+            </section>
+         </div>
+         <div class="logo"> </div>
+      </div>
+      <div class="versionString">
+         <p>DO380-OCP4.6-en-2-20211223</p>
+      </div>
+      <div class="copyright">
+         <p>Copyright &copy;<script>
+                        document.write(new Date().getFullYear())
+                        
+                    </script> Red Hat, Inc.</p>
+      </div>
+      <script src="lib/js/head.min.js"> </script>
+      <script src="js/reveal.js"> </script>
+      <script>
+                    // More info about config & dependencies:
+                    // - https://github.com/hakimel/reveal.js#configuration
+                    // - https://github.com/hakimel/reveal.js#dependencies
+                    Reveal.initialize({
+                    history: true,
+                    slideNumber: 'h.v',
+                    dependencies: [{
+                    src: 'plugin/markdown/marked.js'
+                    },
+                    {
+                    src: 'plugin/markdown/markdown.js'
+                    },
+                    {
+                    src: 'plugin/menu/menu.js'
+                    },
+                    {
+                    src: 'plugin/notes/notes.js',
+                    async: true
+                    },
+                    {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function() {
+                    hljs.initHighlightingOnLoad();
+                    }
+                    },
+                    // Zoom in and out with Alt+click
+                    { src: 'plugin/zoom-js/zoom.js', async: true }
+                    ],
+                    menu: {
+                    side: 'left',
+                    themes: false,
+                    transitions: false,
+                    useTextContentForMissingTitles: true,
+                    }
+                    });
+                    
+                    Reveal.addEventListener('white', function () {
+                    var colorVaryingClasses = ['versionString', 'copyright', 'slide-number']
+                    for (var j = 0, k = colorVaryingClasses.length; j < k; j++) {
+                    // Called each time the slide with the "white" state is made visible
+                    var elements = document.getElementsByClassName(colorVaryingClasses[j]);
+                    for (var i = 0, l = elements.length; i < l; i++) {
+                    elements[i].style.color = "white";
+                    }
+                    }
+                    
+                    var state = Reveal.getState();
+                    
+                    var menu = document.querySelector('.slide-menu-button');
+                    
+                    if (menu) {
+                    menu.classList.add("white");
+                    menu.classList.remove("black");
+                    }
+                    
+                    var bottomLogo = document.querySelector('.logo');
+                    
+                    if (state.indexh == 0) {
+                    bottomLogo.style.display = "none";
+                    } else {
+                    bottomLogo.style.backgroundImage = "url('css/images/redhat-logo-white.svg')";
+                    }
+                    
+                    var buttonRight = document.querySelector('.navigate-right');
+                    buttonRight.style.borderLeftColor = "white";
+                    
+                    var buttonLeft = document.querySelector('.navigate-left');
+                    buttonLeft.style.borderRightColor = "white";
+                    
+                    });
+                    
+                    Reveal.addEventListener('black', function () {
+                    var colorVaryingClasses = ['versionString', 'copyright', 'slide-number']
+                    
+                    for (var j = 0, k = colorVaryingClasses.length; j < k; j++) {
+                    // Called each time the slide with the "white" state is made visible
+                    var elements = document.getElementsByClassName(colorVaryingClasses[j]);
+                    for (var i = 0, l = elements.length; i < l; i++) {
+                    elements[i].style.color = "black";
+                    }
+                    }
+                    
+                    var menu = document.querySelector('.slide-menu-button');
+                    
+                    if (menu) {
+                    menu.classList.add("black");
+                    menu.classList.remove("white");
+                    }
+                    
+                    var bottomLogo = document.querySelector('.logo');
+                    
+                    bottomLogo.style.display = "block";
+                    bottomLogo.style.backgroundImage = "url('css/images/redhat-logo.svg')";
+                    
+                    var buttonRight = document.querySelector('.navigate-right');
+                    buttonRight.style.borderLeftColor = "#CC0000";
+                    
+                    var buttonLeft = document.querySelector('.navigate-left');
+                    buttonLeft.style.borderRightColor = "#CC0000";
+                    
+                    });
+                    
+                </script>
+   </body>
+</html>
